@@ -53,6 +53,9 @@ def haversine_m(lat1, lng1, lat2, lng2):
 def haversine_mi(lat1, lng1, lat2, lng2):
   return haversine_rad(lat1, lng1, lat2, lng2) * radius_mi
 
+def haversine_ft(lat1, lng1, lat2, lng2):
+  return haversine_rad(lat1, lng1, lat2, lng2) * radius_mi * 5280
+
 
 def equirectangular_rad(lat1, lng1, lat2, lng2):
   """
@@ -95,18 +98,29 @@ def equirectangular_m(lat1, lng1, lat2, lng2):
 def equirectangular_mi(lat1, lng1, lat2, lng2):
   return equirectangular_rad(lat1, lng1, lat2, lng2) * radius_mi
 
+def equirectangular_ft(lat1, lng1, lat2, lng2):
+  return equirectangular_rad(lat1, lng1, lat2, lng2) * radius_mi * 5280
+
+def get_distance(lat1, lng1, lat2, lng2):
+  return haversine_m(lat1, lng1, lat2, lng2)
+
+
 
 if __name__ == '__main__':
   lat1, lng1 = 37.393589, -98.460092
   lat2, lng2 = 37.288775, -95.658579
 
+  print("get_distance (haversine_m): %s" % haversine_m(lat1, lng1, lat2, lng2))
+
   print("haversine_rad: %s" % haversine_rad(lat1, lng1, lat2, lng2))
   print("haversine_km: %s" % haversine_km(lat1, lng1, lat2, lng2))
   print("haversine_m: %s" % haversine_m(lat1, lng1, lat2, lng2))
   print("haversine_mi: %s" % haversine_mi(lat1, lng1, lat2, lng2))
+  print("haversine_ft: %s" % haversine_ft(lat1, lng1, lat2, lng2))
 
   print("equirectangular_rad: %s" % equirectangular_rad(lat1, lng1, lat2, lng2))
   print("equirectangular_km: %s" % equirectangular_km(lat1, lng1, lat2, lng2))
   print("equirectangular_m: %s" % equirectangular_m(lat1, lng1, lat2, lng2))
   print("equirectangular_mi: %s" % equirectangular_mi(lat1, lng1, lat2, lng2))
+  print("equirectangular_ft: %s" % equirectangular_ft(lat1, lng1, lat2, lng2))
 
