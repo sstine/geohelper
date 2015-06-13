@@ -1,6 +1,6 @@
 # Geohelper
 
-Geohelper is a python package which contains helper functions to calculate geographical distance, bearing, and more (eventually!).  The package implements several algorithms that are of varying accuracy and efficiency and exposes them with multiple return types.
+Geohelper is a python package which contains helper functions to calculate geographical distance and bearing.  The package implements several algorithms that are of varying accuracy and efficiency and exposes them with multiple return types.
 
   - Distance
     - Haversine (km, m, mi, ft)
@@ -31,8 +31,8 @@ lat2, lng2 = 37.288775, -95.658579
 get_distance uses the haversine formula and returns the distance in meters
 
 ```
-distance_in_meters = distance.get_distance(lat1, lng1, lat2, lng2)
-print("Distance in m: %s" % distance_in_meters)
+>>> distance.get_distance(lat1, lng1, lat2, lng2)
+247930.318661 # Distance in meters
 ```
 
 ### Haversine
@@ -41,20 +41,20 @@ many distances. The error rate is as high as 0.55% but averages at around 0.3%
 The distances are exposed in km, m, mi, ft, and radians.
 
 ```
-hav_distance_km = distance.haversine_km(lat1, lng1, lat2, lng2)
-print("Haversine distance in km: %s" % hav_distance_km)
+>>> distance.haversine_km(lat1, lng1, lat2, lng2)
+247.930318661 # Distance in kilometers
 
-hav_distance_m = distance.haversine_m(lat1, lng1, lat2, lng2)
-print("Haversine distance in m: %s" % hav_distance_m)
+>>> distance.haversine_m(lat1, lng1, lat2, lng2)
+247930.318661 # Distance in meters
 
-hav_distance_mi = distance.haversine_mi(lat1, lng1, lat2, lng2)
-print("Haversine distance in mi: %s" % hav_distance_mi)
+>>> distance.haversine_mi(lat1, lng1, lat2, lng2)
+153.949511948 # Distance in miles
 
-hav_distance_ft = distance.haversine_ft(lat1, lng1, lat2, lng2)
-print("Haversine distance in ft: %s" % hav_distance_ft)
+>>> distance.haversine_ft(lat1, lng1, lat2, lng2)
+812853.423086 # Distance in feet
 
-hav_distance_rad = distance.haversine_rad(lat1, lng1, lat2, lng2)
-print("Haversine distance in radians: %s" % hav_distance_rad)
+>>> distance.haversine_rad(lat1, lng1, lat2, lng2)
+0.0389154479141 # Distance in radians
 ```
 
 ### Equirectangular
@@ -63,27 +63,25 @@ well when dealing with small distances. The distances are exposed in km, m, mi,
 ft, and radians.
 
 ```
-equirect_dist_km = distance.equirectangular_km(lat1, lng1, lat2, lng2)
-print("Equirectangular distance in km: %s" % equirect_dist_km)
+>>> distance.equirectangular_km(lat1, lng1, lat2, lng2)
+247.93948162 # Distance in kilometers
 
-equirect_dist_m = distance.equirectangular_m(lat1, lng1, lat2, lng2)
-print("Equirectangular distance in m: %s" % equirect_dist_m)
+>>> distance.equirectangular_m(lat1, lng1, lat2, lng2)
+247939.48162 # Distance in meters
 
-equirect_dist_mi = distance.equirectangular_mi(lat1, lng1, lat2, lng2)
-print("Equirectangular distance in mi: %s" % equirect_dist_mi)
+>>> distance.equirectangular_mi(lat1, lng1, lat2, lng2)
+153.955201584 # Distance in miles
 
-equirect_dist_ft = distance.equirectangular_ft(lat1, lng1, lat2, lng2)
-print("Equirectangular distance in ft: %s" % equirect_dist_ft)
+>>> distance.equirectangular_ft(lat1, lng1, lat2, lng2)
+812883.464362 # Distance in feet
 
-equirect_dist_rad = distance.equirectangular_rad(lat1, lng1, lat2, lng2)
-print("Haversine distance in radians: %s" % equirect_dist_rad)
+>>> distance.equirectangular_rad(lat1, lng1, lat2, lng2)
+0.0389168861435 # Distance in radians
 ```
 
 ### Todo's
-
-Write Tests
-Implement more distance functionality
-Add bearing functions
+  - Implement Vincenty algorithm (distance)
+  - Implement bearing algorithms
 
 License
 ----
