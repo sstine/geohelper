@@ -18,7 +18,7 @@ setup(
     # https://packaging.python.org/en/latest/single_source_version.html
     version='0.1.1',
 
-    description='A Python project for computing geographical values like distance',
+    description='Compute geographical distances and bearings with various algos',
     long_description=long_description,
 
     # The project's main homepage.
