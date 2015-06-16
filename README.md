@@ -79,6 +79,16 @@ ft, and radians.
 0.0389168861435 # Distance in radians
 ```
 
+### Bearing
+Calculates a compass bearing (North being 0 degrees) for two given coordinate
+pairs.  
+
+```
+from geohelper import bearing
+>>> bearing.initial_compass_bearing(lat1, lng1, lat2, lng2)
+91.8439843971
+```
+
 ### Todo's
   - Implement Vincenty algorithm (distance)
   - Implement bearing algorithms
