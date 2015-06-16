@@ -1,4 +1,5 @@
 from math import radians, cos, sin, asin, sqrt
+import timeit
 
 radius_km = 6371
 radius_mi = 3956
@@ -104,7 +105,10 @@ def equirectangular_ft(lat1, lng1, lat2, lng2):
 def get_distance(lat1, lng1, lat2, lng2):
   return haversine_m(lat1, lng1, lat2, lng2)
 
-
+def wrapper(func, *args, **kwargs):
+    def wrapped():
+        return func(*args, **kwargs)
+    return wrapped
 
 if __name__ == '__main__':
   lat1, lng1 = 37.393589, -98.460092
@@ -124,3 +128,14 @@ if __name__ == '__main__':
   print("equirectangular_mi: %s" % equirectangular_mi(lat1, lng1, lat2, lng2))
   print("equirectangular_ft: %s" % equirectangular_ft(lat1, lng1, lat2, lng2))
 
+  print("Running performance tests:")
+  wrapped = wrapper(haversine_m, lat1, lng1, lat2, lng2)
+  haversine_m_time = timeit.timeit(wrapped,number=1000000)
+  print("haversine_m * 1,000,000 iterations: %s" % haversine_m_time)
+
+  wrapped = wrapper(equirectangular_m, lat1, lng1, lat2, lng2)
+  equirectangular_m_time = timeit.timeit(wrapped,number=1000000)
+  print("equirectangular_m * 1,000,000 iterations: %s" % equirectangular_m_time)
+
+  efficiency_ratio = (haversine_m_time - equirectangular_m_time) / haversine_m_time
+  print("equirectangular_m is %s faster than haversine_m" % efficiency_ratio)
