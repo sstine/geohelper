@@ -10,7 +10,7 @@ Geohelper is a python package which contains helper functions to calculate geogr
 Source information for the algorithms used was obtained from [Movable Type Scripts] 
 
 ### Version
-0.1.1
+0.2.0
 
 ### Installation
 
